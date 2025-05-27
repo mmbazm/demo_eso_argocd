@@ -22,7 +22,7 @@ spec:
         - name: SECRET_VALUE
           valueFrom:
             secretKeyRef:
-              name: demo-app-secret
+              name: demo-secret
               key: SECRET_VALUE
         ports:
         - containerPort: 5678

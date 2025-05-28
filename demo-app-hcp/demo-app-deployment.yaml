@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-app-hcp
+  namespace: ns-demo-hcp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-app
+  template:
+    metadata:
+      labels:
+        app: demo-app-hcp
+    spec:
+      containers:
+      - name: demo-app-hcp
+        image: hashicorp/http-echo:0.2.3
+        args:
+        - "-text=$(SECRET_VALUE)"
+        env:
+        - name: SECRET_VALUE
+          valueFrom:
+            secretKeyRef:
+              name: demo-secret
+              key: SECRET_VALUE
+        ports:
+        - containerPort: 5678

@@ -22,7 +22,7 @@ spec:
         - name: SECRET_VALUE
           valueFrom:
             secretKeyRef:
-              name: hello-world
+              name: demo-external-secret
               key: SECRET_VALUE
         ports:
         - containerPort: 5678

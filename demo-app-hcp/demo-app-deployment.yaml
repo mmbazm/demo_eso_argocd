@@ -7,7 +7,7 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: demo-app
+      app: demo-app-hcp
   template:
     metadata:
       labels:

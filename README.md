@@ -34,6 +34,8 @@
 # Description
 This project demonstrates secure, GitOps-driven secret management for Kubernetes applications using External Secrets Operator (ESO) and Argo CD. Instead of storing sensitive values directly in Kubernetes manifests or Git repositories, secrets are managed in an external secrets manager such as HashiCorp Vault, AWS Secrets Manager, or Delinea DSV. The ESO automatically syncs these secrets into Kubernetes as standard Secret resources, which are then consumed by the application. This approach enables secure secret rotation, centralized auditability, and separation of secret management from application deployment. Argo CD continuously deploys and reconciles all resources, including ESO custom resources, ensuring that applications always receive up-to-date secret values without exposing sensitive data in version control or CI/CD pipelines.
 
+![Architecture](argo_cd_eso.png)
+
 # Technical Environnement
 The table below shows the tools and solutions used in the project:
 

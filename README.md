@@ -29,6 +29,7 @@
     - [Create an ExternalSecret Resource](#create-an-externalsecret-resource)
     - [Summary](#summary)
 - [Scenario #3: Delinea DSV as Backend (not tested)](#scenario-3-delinea-dsv-as-backend-not-tested)
+- [Installing ESO without Internet access](#installing-eso-without-internet-access)
 
 
 # Description
@@ -43,6 +44,7 @@ The table below shows the tools and solutions used in the project:
 | -------- | ------- | ------- |
 | VCS           | GitHub | N/A|
 | Container Deployment | MiniKube |  1.34.0 |
+| ESO | * | 0.17.0 |
 
 ### System Requirements
 * Recommended system requirements: 1GB RAM, x86 or arm64 CPU
@@ -402,3 +404,17 @@ spec:
         key: /path/to/secret/in/dsv
         property: password
 ```
+
+# Installing ESO without Internet access
+To install the Helm chart from a local package like `external-secrets-0.17.0.tar.gz`, use the helm install command with the following syntax:
+
+```bash
+helm install external-secrets-0.17.0 helm_chart/external-secrets-0.17.0.tar.gz
+```
+
+This will deploy the chart to the current Kubernetes context.
+For any custom values add `--values new-values.yaml`:
+```bash
+helm install external-secrets-0.17.0 helm_chart/external-secrets-0.17.0.tar.gz --values new-values.yaml
+```
+
